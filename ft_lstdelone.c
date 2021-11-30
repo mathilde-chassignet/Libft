@@ -1,6 +1,18 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mchassig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/22 14:16:44 by mchassig          #+#    #+#             */
+/*   Updated: 2021/11/24 16:10:53 by mchassig         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_lstdelon(t_list *lst, void (*del)(void*))
+#include "libft.h"
+
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (!lst || !del)
 		return ;

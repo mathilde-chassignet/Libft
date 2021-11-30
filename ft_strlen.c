@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchassig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 16:36:55 by mchassig          #+#    #+#             */
-/*   Updated: 2021/07/01 16:36:57 by mchassig         ###   ########.fr       */
+/*   Created: 2021/11/22 14:21:47 by mchassig          #+#    #+#             */
+/*   Updated: 2021/11/25 16:35:33 by mchassig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
