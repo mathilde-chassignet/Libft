@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchassig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 17:33:50 by mchassig          #+#    #+#             */
-/*   Updated: 2022/02/24 17:44:50 by mchassig         ###   ########.fr       */
+/*   Created: 2022/02/24 17:34:59 by mchassig          #+#    #+#             */
+/*   Updated: 2022/02/24 17:35:04 by mchassig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strcpy(char *dest, char *src)
 {
-	char	*dest;
-	size_t	i;
+	int	i;
 
-	if (!s)
-		return (NULL);
-	if (start <= ft_strlen(s))
+	i = 0;
+	while (src[i])
 	{
-		if ((ft_strlen(s) - start) < len)
-			len = ft_strlen(s) - start;
+		dest[i] = src[i];
+		i++;
 	}
-	else
-		len = 0;
-	dest = malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (NULL);
-	dest[len] = '\0';
-	i = -1;
-	while (++i < len && s[start + i])
-		dest[i] = s[start + i];
+	dest[i] = '\0';
 	return (dest);
 }

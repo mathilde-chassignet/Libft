@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchassig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 17:33:50 by mchassig          #+#    #+#             */
-/*   Updated: 2022/02/24 17:44:50 by mchassig         ###   ########.fr       */
+/*   Created: 2021/11/22 14:11:12 by mchassig          #+#    #+#             */
+/*   Updated: 2022/02/03 16:41:05 by mchassig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+long	ft_atol(const char *str)
 {
-	char	*dest;
-	size_t	i;
+	int		i;
+	int		sign;
+	long	nb;
 
-	if (!s)
-		return (NULL);
-	if (start <= ft_strlen(s))
+	if (!str)
+		return (0);
+	i = 0;
+	sign = 1;
+	nb = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '-')
 	{
-		if ((ft_strlen(s) - start) < len)
-			len = ft_strlen(s) - start;
+		sign = -1;
+		i++;
 	}
-	else
-		len = 0;
-	dest = malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (NULL);
-	dest[len] = '\0';
-	i = -1;
-	while (++i < len && s[start + i])
-		dest[i] = s[start + i];
-	return (dest);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + sign * (str[i] - 48);
+		i++;
+	}
+	return (nb);
 }
