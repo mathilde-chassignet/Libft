@@ -6,7 +6,7 @@
 /*   By: mchassig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 14:21:47 by mchassig          #+#    #+#             */
-/*   Updated: 2021/11/25 16:35:33 by mchassig         ###   ########.fr       */
+/*   Updated: 2022/02/24 17:38:30 by mchassig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 		i++;
 	return (i);

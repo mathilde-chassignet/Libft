@@ -6,30 +6,18 @@
 /*   By: mchassig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 14:20:38 by mchassig          #+#    #+#             */
-/*   Updated: 2021/11/29 21:03:15 by mchassig         ###   ########.fr       */
+/*   Updated: 2022/02/24 17:30:22 by mchassig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_cpy(char *dest, char const *s, int i)
-{
-	int	j;
-
-	j = 0;
-	while (s[j])
-	{
-		dest[i] = s[j];
-		i++;
-		j++;
-	}
-	return (dest);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		len;
 	char	*dest;
+	int		i;
+	int		j;
 
 	if (!s1 || !s2)
 		return (NULL);
@@ -38,7 +26,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!dest)
 		return (NULL);
 	dest[len] = '\0';
-	dest = ft_cpy(dest, s1, 0);
-	dest = ft_cpy(dest, s2, ft_strlen(s1));
+	i = -1;
+	while (s1[++i])
+		dest[i] = s2[i];
+	j = -1;
+	while (s2[++j])
+		dest[i + j] = s2[j];
 	return (dest);
 }

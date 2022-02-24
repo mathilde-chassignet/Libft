@@ -2,6 +2,7 @@ NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_atoi.c \
+	   	ft_atol.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -24,6 +25,8 @@ SRCS = ft_atoi.c \
 		ft_strdup.c \
 		ft_striteri.c \
 		ft_strjoin.c \
+		ft_strcat.c \
+		ft_strcpy.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
@@ -34,8 +37,8 @@ SRCS = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c 
-SRCS_BONUS = ft_lstadd_back.c \
+		ft_toupper.c \
+		ft_lstadd_back.c \
 		ft_lstadd_front.c \
 		ft_lstdelone.c \
 		ft_lstlast.c \
@@ -43,10 +46,10 @@ SRCS_BONUS = ft_lstadd_back.c \
 		ft_lstsize.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		ft_printf.c \
 
 OBJS = ${SRCS:.c=.o}
-OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
 all: ${NAME}
 
@@ -56,11 +59,8 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
-bonus: ${OBJS} ${OBJS_BONUS}
-	ar rc ${NAME} ${OBJS} ${OBJS_BONUS}
-
 clean:
-	rm -f ${OBJS} ${OBJS_BONUS}
+	rm -f ${OBJS}
 
 fclean: clean
 	rm -f ${NAME}
