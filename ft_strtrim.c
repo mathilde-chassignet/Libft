@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchassig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mchassig <mchassig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 14:23:01 by mchassig          #+#    #+#             */
-/*   Updated: 2021/11/30 12:04:34 by mchassig         ###   ########.fr       */
+/*   Updated: 2022/06/06 12:18:28 by mchassig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int	ft_ischarset(char c, char const *set)
-{
-	int	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (set[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
+#include <libft.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

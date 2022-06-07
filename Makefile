@@ -10,6 +10,7 @@ SRCS = ft_atoi.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
+		ft_ischarset.c \
 		ft_itoa.c \
 		ft_memchr.c \
 		ft_memcmp.c \
@@ -29,11 +30,14 @@ SRCS = ft_atoi.c \
 		ft_striteri.c \
 		ft_strjoin.c \
 		ft_strjoinx.c \
+		ft_tabjoin.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
+		ft_tabstrlen.c \
 		ft_strmapi.c \
 		ft_strncmp.c \
+		ft_strcmp.c \
 		ft_strnstr.c \
 		ft_strrchr.c \
 		ft_strtrim.c \
@@ -49,14 +53,16 @@ SRCS = ft_atoi.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		get_next_line.c
+		ft_free_tabstr.c \
+		get_next_line.c \
+
 
 OBJS = ${SRCS:.c=.o}
 
 all: ${NAME}
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I includes
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I .
 
 ${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}

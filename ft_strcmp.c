@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchassig <mchassig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 14:20:38 by mchassig          #+#    #+#             */
-/*   Updated: 2022/06/07 11:48:15 by mchassig         ###   ########.fr       */
+/*   Created: 2022/06/06 11:05:10 by mchassig          #+#    #+#             */
+/*   Updated: 2022/06/06 12:17:01 by mchassig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int		len;
-	char	*dest;
-	int		i;
-	int		j;
-
 	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	dest = malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (NULL);
-	dest[len] = '\0';
-	i = -1;
-	while (s1[++i])
-		dest[i] = s1[i];
-	j = -1;
-	while (s2[++j])
-		dest[i + j] = s2[j];
-	return (dest);
+		return (1);
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
 }
